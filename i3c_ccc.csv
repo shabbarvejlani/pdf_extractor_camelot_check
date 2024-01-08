@@ -1,0 +1,60 @@
+Command Code,,CCC Type  Required,Command Name,Default,Section,Brief Description
+0x00,Broadcast,Y,ENEC Enable Events Command,Y,5.1.9.3.1,Enable Slave event driven interrupts
+0x01,Broadcast,Y,DISEC Disable Events Command,N,5.1.9.3.1,Disable Slave event driven interrupts
+0x02,Broadcast,Y1,ENTAS0 Enter Activity State 0,Y,5.1.9.3.2,Set Activity Mode to State 0 (normal operation)
+0x03,Broadcast,N1,ENTAS1 Enter Activity State 1,N,5.1.9.3.2,Set Activity State 1
+0x04,Broadcast,N1,ENTAS2 Enter Activity State 2,N,5.1.9.3.2,Set Activity State 2
+0x05,Broadcast,N1,ENTAS3 Enter Activity State 3,N,5.1.9.3.2,Set Activity State 3
+0x06,Broadcast,Y,RSTDAA Reset Dynamic Address Assignment,–,5.1.9.3.3,Forget current Dynamic Address and wait for new assignment
+0x07,Broadcast,Y,ENTDAA Enter Dynamic Address Assignment,–,5.1.9.3.4,Entering Master initiation of Slave Dynamic Address Assignment. Don’t participate if the Slave already has an Address assigned.
+0x08,Broadcast,N,DEFSLVS Define List of Slaves,–,5.1.9.3.7,"Master defines Dynamic Address, DCR Type, and Static Address (or 0) per Slave"
+0x09,Broadcast,Y6,SETMWL Set Max Write Length,–,5.1.9.3.5,Maximum write length in a single command
+0x0A,Broadcast,Y7,SETMRL Set Max Read Length,–,5.1.9.3.6,Maximum read length in a single command
+0x0B,Broadcast,N,ENTTM  Enter Test Mode,–,5.1.9.3.8,Master has entered Test Mode
+0x0C – 0x1F,–,–,MIPI Reserved,–,–,Reserved for future use by MIPI Alliance
+0x20,Broadcast,N3,ENTHDR0 Enter HDR Mode 0,–,5.1.9.3.9,Master has entered HDR – DDR Mode
+0x21,Broadcast,N3,ENTHDR1 Enter HDR Mode 1,–,5.1.9.3.9,Master has entered HDR – TSP Mode
+0x22,Broadcast,N3,ENTHDR2 Enter HDR Mode 2,–,5.1.9.3.9,Master has entered HDR – TSL Mode
+0x23,Broadcast,N3,ENTHDR3 Enter HDR Mode 3,–,–,Master has entered HDR - Future
+0x24,Broadcast,N3,ENTHDR4 Enter HDR Mode 4,–,–,Master has entered HDR - Future
+0x25,Broadcast,N3,ENTHDR5 Enter HDR Mode 5,–,–,Master has entered HDR - Future
+0x26,Broadcast,N3,ENTHDR6 Enter HDR Mode 6,–,–,Master has entered HDR - Future
+0x27,Broadcast,N3,ENTHDR7 Enter HDR Mode 7,–,–,Master has entered HDR - Future
+0x28,Broadcast,N,SETXTIME Exchange Timing Information,–,5.1.9.3.20,Framework for exchanging event timing information
+0x29 – 0x48,–,–,MIPI Sensor WG Reserved,–,–,Reserved for future use by MIPI Sensor WG
+0x49 – 0x57,Broadcast,–,MIPI Reserved for other WG’s – Broadcast CCCs,–,–,Reserved for future use by other MIPI Working Groups
+0x58 – 0x5B,Broadcast,–,MIPI Debug WG Reserved – Broadcast CCCs,–,–,Reserved for use by MIPI Debug Working Group
+0x5C – 0x60,Broadcast,–,MIPI RIO WG Reserved – Broadcast CCCs,–,–,Reserved for use by MIPI RIO Working Group
+0x61 – 0x7F,Broadcast,–,Vendor Extension – Broadcast CCCs,–,–,For Vendor use
+0x80,Direct,Y,ENEC Enable Events Command,Y,5.1.9.3.1,Enable Slave event driven interrupts
+0x81,Direct,Y,DISEC Disable Events Command,N,5.1.9.3.1,Disable Slave event driven interrupts
+0x82,Direct,Y1,ENTAS0 Enter Activity State 0,Y,5.1.9.3.2,Set Activity Mode to State 0 (normal operation)
+0x83,Direct,N1,ENTAS1 Enter Activity State 1,N,5.1.9.3.2,Set activity State 1
+0x84,Direct,N1,ENTAS2 Enter Activity State 2,N,5.1.9.3.2,Set activity State 2
+0x85,Direct,N1,ENTAS3 Enter Activity State 3,N,5.1.9.3.2,Set activity State 3
+0x86,Direct,Y,RSTDAA  Reset Dynamic Address Assignment,–,5.1.9.3.3,Forget current Dynamic Address and wait for new assignment
+0x87,Direct Set,N,SETDASA  Set Dynamic Address from Static Address,–,,5.1.9.3.10  Master assigns a Dynamic Address to a Slave with a known Static Address.
+0x88,Direct Set,Y,SETNEWDA  Set New Dynamic Address,–,5.1.9.3.11  Master assigns a new Dynamic,Address to any I3C Slave
+0x89,Direct Set,Y2,SETMWL  Set Max Write Length,–,5.1.9.3.5,Maximum write length in a single command
+0x8A,Direct Set,Y2,SETMRL  Set Max Read Length,–,5.1.9.3.6,Maximum read length in a single command
+0x8B,Direct Get,Y2,GETMWL  Get Max Write Length,–,5.1.9.3.5,Get Slave’s maximum possible write length
+0x8C,Direct Get,Y2,GETMRL  Get Max Read Length,–,5.1.9.3.6,Get a Slave’s maximum possible read length
+0x8D,Direct Get,Y,GETPID  Get Provisional ID,–,5.1.9.3.12  Get a Slave’s Provisional ID,
+0x8E,Direct Get,Y,GETBCR  Get Bus Characteristics Register,–,5.1.9.3.13  Get a Device’s Bus Characteristic,Register (BCR)
+0x8F,Direct Get,Y,GETDCR  Get Device Characteristics Register,–,,5.1.9.3.14  Get a Device’s Device Characteristics Register (DCR)
+0x90,Direct Get,Y,GETSTATUS  Get Device Status,–,5.1.9.3.15  Get a Device’s operating status,
+0x91,Direct Get,N,GETACCMST  Get Accept Mastership,–,5.1.9.3.16  Current Master is requesting and,confirming a Bus Mastership from a Secondary Master
+0x92,–,–,MIPI Sensor WG Reserved,–,–,Reserved for future use by MIPI Sensor WG
+0x93,Direct Set,N,SETBRGTGT  Set Bridge Targets,–,,"5.1.9.3.17  Master tells Bridge (to/from I2C, SPI, UART, etc.) what endpoints it is talking to (by Dynamic Address and type/ID)."
+0x94,Direct Get,N4,GETMXDS  Get Max Data Speed,–,,5.1.9.3.18  Master asks Slave for its SDR Mode max. Read and Write data speeds (& optionally max. Read Turnaround time)
+0x95,Direct Get,N5,GETHDRCAP Get HDR Capability,–,,5.1.9.3.19  Master asks Slave what HDR Modes it supports
+0x96 – 0x97,–,–,MIPI Sensor WG Reserved,–,–,Reserved for future use by MIPI Sensor WG
+0x98,Direct,N,SETXTIME  Set Exchange Timing Information,–,5.1.9.3.20,Framework for exchanging event timing information
+0x99,Direct,N,GETXTIME  Get Exchange Timing Information,–,5.1.9.3.21,Framework for exchanging event timing information
+0x9A – 0xBF,Direct,–,MIPI Sensor WG Reserved – Direct CCCs,–,–,Reserved for future use by MIPI Sensor WG
+0xC0 – 0xD6,Direct,–,MIPI Reserved for other WG’s – Direct CCCs,–,–,Reserved for future use by MIPI Sensor WG
+0xD7 – 0xDA,Direct,–,MIPI Debug WG Reserved – Direct CCCs,–,–,Reserved for use by MIPI Debug WG
+0xDB – 0xDF,Direct,–,MIPI RIO WG Reserved – Direct CCCs,–,–,Reserved for use by MIPI RIO WG
+0xE0 – 0xFE,Direct,–,Vendor Extension – Direct CCCs,–,–,For Vendor use
+0xFF,–,–,MIPI Sensor WG Reserved,–,–,Reserved for future use by MIPI Sensor WG
+"Note: 1) Slave Devices shall be permitted to self-power-manage based on this information. 2) This CCC shall be supported by Devices capable of transporting 16 or more sequential bytes. 3) All I3C compliant Slaves shall recognize that the Bus is entering an HDR Mode, and detect the HDR Exit Pattern. 4) This CCC shall be supported by Slave Devices with Bus Control Register (BCR) Bit [0] set to 1’b1. 5) This CCC shall be supported by Slave Devices that support any HDR Mode. 6) See Section 5.1.9.3.5 Set/Get Max Write Length (SETMWL/GETMWL). 7) See Section 5.1.9.3.6 Set/Get Max Read Length (SETMRL/GETMRL).",,,,,,
